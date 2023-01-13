@@ -19,6 +19,14 @@ namespace Actividades_UT6_2.VistasModelo
             set { SetProperty(ref personas, value); }
         }
 
+        private ObservableCollection<Persona> personaSeleccionada;
+
+        public ObservableCollection<Persona> PersonaSeleccionada
+        {
+            get { return personaSeleccionada; }
+            set { SetProperty(ref personaSeleccionada, value); }
+        }
+
         private string textoAMostrar;
 
         public string TextoAMostrar
@@ -32,9 +40,9 @@ namespace Actividades_UT6_2.VistasModelo
         {
             Personas = new ObservableCollection<Persona>();
 
-            Personas.Add(new Persona("Pietro", 30, "Italiana"));
-            Personas.Add(new Persona("Julia", 25, "Española"));
-            Personas.Add(new Persona("Sophie", 35, "Francesa"));
+            Personas.Add(new Persona("Pietro", "30", "Italiana"));
+            Personas.Add(new Persona("Julia", "25", "Española"));
+            Personas.Add(new Persona("Sophie", "35", "Francesa"));
 
             MostrarPersonas();
         }

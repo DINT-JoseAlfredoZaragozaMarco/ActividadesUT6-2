@@ -6,7 +6,23 @@
              xmlns:local="clr-namespace:Actividades_UT6_2.Vistas"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <DockPanel Background="White" LastChildFill="True">
-        <TextBlock Margin="5" FontSize="20" Text="{Binding Path=TextoAMostrar}"/>
-    </DockPanel>
+    <UserControl.Resources>
+        <DataTemplate x:Key="ListaPersonas">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock FontSize="20" Text="{Binding Path=Nombre}"/>
+                <TextBlock FontSize="20" Text=" - "/>
+                <TextBlock FontSize="20" Text="{Binding Path=Edad}"/>
+                <TextBlock FontSize="20" Text=" - "/>
+                <TextBlock FontSize="20" Text="{Binding Path=Nacionalidad}"/>
+            </StackPanel>
+        </DataTemplate>
+    </UserControl.Resources>
+    
+    <ListBox ItemTemplate="{StaticResource ListaPersonas}" ItemsSource="{Binding Path=Personas}" ScrollViewer.HorizontalScrollBarVisibility="Disabled" SelectedItem="{Binding Path=PersonaSeleccionada}">
+        <ListBox.ItemsPanel>
+            <ItemsPanelTemplate>
+                <StackPanel></StackPanel>
+            </ItemsPanelTemplate>
+        </ListBox.ItemsPanel>
+    </ListBox>
 </UserControl>

@@ -8,14 +8,15 @@
              d:DesignHeight="450" d:DesignWidth="800">
     <StackPanel Background="White">
         <TextBlock FontSize="20" Margin="5">Nombre</TextBlock>
-        <TextBox Margin="5"></TextBox>
+        <TextBox Margin="5" Text="{Binding Path=PersonaNueva.Nombre, UpdateSourceTrigger=PropertyChanged}"></TextBox>
         <TextBlock Margin="5" FontSize="20">Edad</TextBlock>
-        <TextBox Margin="5"></TextBox>
+        <TextBox Margin="5" Text="{Binding Path=PersonaNueva.Edad, UpdateSourceTrigger=PropertyChanged}"></TextBox>
         <TextBlock FontSize="20" Margin="5">Nacionalidad</TextBlock>
         <StackPanel Orientation="Horizontal">
-            <ComboBox Margin="5" Width="200" HorizontalAlignment="Left" Height="25" ItemsSource="{Binding Path=Nacionalidades}"/>
+            <ComboBox Margin="5" Width="200" HorizontalAlignment="Left" Height="25" 
+                      ItemsSource="{Binding Path=Nacionalidades}" SelectedItem="{Binding Path=PersonaNueva.Nacionalidad}"/>
             <Button Width="30" Height="25" Command="{Binding Path=CommandAñadirNacionalidad}">+</Button>
         </StackPanel>
-        <Button Width="150">Aceptar</Button>
+        <Button Width="150" Command="{Binding Path=CommandNuevaPersona}">Aceptar</Button>
     </StackPanel>
 </UserControl>

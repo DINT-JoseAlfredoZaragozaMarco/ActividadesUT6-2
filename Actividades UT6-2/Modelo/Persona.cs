@@ -18,9 +18,9 @@ namespace Actividades_UT6_2.Modelo
 			set { SetProperty(ref nombre, value); }
 		}
 
-		private int edad;
+		private int? edad;
 
-		public int Edad
+		public int? Edad
 		{
 			get { return edad; }
 			set { SetProperty(ref edad, value); }
@@ -34,10 +34,15 @@ namespace Actividades_UT6_2.Modelo
 			set { SetProperty(ref nacionalidad, value); }
 		}
 
-		public Persona(string nombre, int edad, string nacionalidad)
+		public Persona()
+        {
+			
+        }
+
+		public Persona(string nombre, string edad, string nacionalidad)
 		{
 			this.nombre = nombre;
-			this.edad = edad;
+			this.edad = int.Parse(edad);
 			this.nacionalidad = nacionalidad;
 		}
 

@@ -1,4 +1,5 @@
-﻿using Actividades_UT6_2.Servicios;
+﻿using Actividades_UT6_2.Modelo;
+using Actividades_UT6_2.Servicios;
 using Microsoft.Toolkit.Mvvm.ComponentModel;
 using Microsoft.Toolkit.Mvvm.Input;
 using System;
@@ -18,10 +19,7 @@ namespace Actividades_UT6_2.VistasModelo
         public Window ContenidoVentana
         {
             get { return contenidoVentana; }
-            set
-            {
-                SetProperty(ref contenidoVentana, value);
-            }
+            set { SetProperty(ref contenidoVentana, value); }
         }
 
         private ObservableCollection<string> nacionalidades;
@@ -31,13 +29,26 @@ namespace Actividades_UT6_2.VistasModelo
             get { return nacionalidades; }
             set { SetProperty(ref nacionalidades, value); }
         }
+
+        private Persona personaNueva;
+
+        public Persona PersonaNueva
+        {
+            get { return personaNueva; }
+            set { SetProperty(ref personaNueva, value); }
+        }
+
+
         public RelayCommand CommandAñadirNacionalidad { get; }
+        public RelayCommand CommandNuevaPersona { get; }
 
         public NuevaPersonaVM()
         {
             servicioNavegacion = new ServicioNavegacion();
             CommandAñadirNacionalidad = new RelayCommand(AñadirNacionalidad);
+            CommandNuevaPersona = new RelayCommand(AgregarNuevaPersona);
             Nacionalidades = new ObservableCollection<string>();
+            PersonaNueva = new Persona();
 
             Nacionalidades.Add("Española");
             Nacionalidades.Add("Francesa");
@@ -48,6 +59,11 @@ namespace Actividades_UT6_2.VistasModelo
         {
             ContenidoVentana = servicioNavegacion.AñadirNacionalidad();
             ContenidoVentana.ShowDialog();
+        }
+
+        public void AgregarNuevaPersona()
+        {
+            MessageBox.Show(PersonaNueva.ToString());
         }
     }
 }

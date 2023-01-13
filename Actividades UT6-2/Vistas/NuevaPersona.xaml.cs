@@ -22,7 +22,6 @@ namespace Actividades_UT6_2.Vistas
     public partial class NuevaPersona : UserControl
     {
         private NuevaPersonaVM vm;
-
         public NuevaPersona()
         {
             InitializeComponent();

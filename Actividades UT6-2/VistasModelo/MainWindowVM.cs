@@ -15,25 +15,21 @@ namespace Actividades_UT6_2.VistasModelo
     class MainWindowVM : ObservableObject
     {
         private ServicioNavegacion servicioNavegacion;
-
+        private bool iniciada;
         private UserControl contenidorUserControl;
         public UserControl ContenidorUserControl
         { 
-            get{ return contenidorUserControl; }
-            set
-            {
-                SetProperty(ref contenidorUserControl, value);
-            }
+            get { return contenidorUserControl; }
+            set { SetProperty(ref contenidorUserControl, value); }
         }
+
+        private UserControl contenedorUserControlLista;
 
         private Window contenidoVentana;
         public Window ContenidoVentana
         {
             get { return contenidoVentana; }
-            set
-            {
-                SetProperty(ref contenidoVentana, value);
-            }
+            set { SetProperty(ref contenidoVentana, value); }
         }
 
         public RelayCommand CommandNuevaPersona { get; }
@@ -44,6 +40,7 @@ namespace Actividades_UT6_2.VistasModelo
             servicioNavegacion = new ServicioNavegacion();
             CommandListaPersonas = new RelayCommand(ListadoPersonas);
             CommandNuevaPersona = new RelayCommand(NuevaPersona);
+            iniciada = false;
         }
 
         public void NuevaPersona()
@@ -52,7 +49,16 @@ namespace Actividades_UT6_2.VistasModelo
         }
         public void ListadoPersonas()
         {
-            ContenidorUserControl = servicioNavegacion.ObtenerListaPersonas();
+            if (!iniciada)
+            {
+                iniciada = true;
+                ContenidorUserControl = servicioNavegacion.ObtenerListaPersonas();
+                contenedorUserControlLista = ContenidorUserControl;
+            }
+            else
+            {
+                ContenidorUserControl = contenedorUserControlLista;
+            }
         }
     }
 }
