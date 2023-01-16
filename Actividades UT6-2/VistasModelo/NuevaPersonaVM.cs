@@ -15,12 +15,6 @@ namespace Actividades_UT6_2.VistasModelo
     class NuevaPersonaVM : ObservableObject
     {
         private ServicioNavegacion servicioNavegacion;
-        private Window contenidoVentana;
-        public Window ContenidoVentana
-        {
-            get { return contenidoVentana; }
-            set { SetProperty(ref contenidoVentana, value); }
-        }
 
         private ObservableCollection<string> nacionalidades;
 
@@ -57,8 +51,7 @@ namespace Actividades_UT6_2.VistasModelo
 
         public void AñadirNacionalidad()
         {
-            ContenidoVentana = servicioNavegacion.AñadirNacionalidad();
-            ContenidoVentana.ShowDialog();
+            bool? resultado = servicioNavegacion.AñadirNacionalidad();
         }
 
         public void AgregarNuevaPersona()

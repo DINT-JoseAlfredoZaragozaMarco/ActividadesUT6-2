@@ -11,6 +11,14 @@ namespace Actividades_UT6_2.Servicios
 {
     class ServicioNavegacion
     {
+        private bool iniciada;
+        private UserControl contenedorUserControlLista;
+
+        public ServicioNavegacion()
+        {
+            iniciada = false;
+        }
+
         public UserControl ObtenerNuevaPersona()
         {
             return new NuevaPersona();
@@ -18,12 +26,22 @@ namespace Actividades_UT6_2.Servicios
 
         public UserControl ObtenerListaPersonas()
         {
-            return new ListadoPersonas();
+            if (!iniciada)
+            {
+                iniciada = true;
+                contenedorUserControlLista = new ListadoPersonas();
+                return contenedorUserControlLista;
+            }
+            else
+            {
+                return contenedorUserControlLista;
+            }
         }
         
-        public Window AñadirNacionalidad()
+        public bool? AñadirNacionalidad()
         {
-            return new AñadirNacionalidad();
+            AñadirNacionalidad añadirNacionalidadUserControl = new AñadirNacionalidad();
+            return añadirNacionalidadUserControl.ShowDialog();
         }
     }
 }

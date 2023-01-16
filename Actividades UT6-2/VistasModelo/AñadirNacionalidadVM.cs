@@ -13,6 +13,14 @@ namespace Actividades_UT6_2.VistasModelo
 {
     class AñadirNacionalidadVM : ObservableObject
     {
+        private string nacionalidad;
+
+        public string Nacionalidad
+        {
+            get { return nacionalidad; }
+            set { nacionalidad = value; }
+        }
+
         public RelayCommand CommandAñadirNacionalidad { get; }
         public AñadirNacionalidadVM()
         {

@@ -6,10 +6,10 @@
         xmlns:local="clr-namespace:Actividades_UT6_2.Vistas"
         mc:Ignorable="d"
         Icon="../assets/añadir.ico"
-        Title="Añadir Nacionalidad" Height="150" Width="400" ShowInTaskbar="False">
+        Title="Añadir Nacionalidad" Height="150" Width="400" ShowInTaskbar="False" ResizeMode="NoResize">
     <StackPanel>
         <TextBlock Text="Nacionalidad" FontSize="20" Margin="5"/>
-        <TextBox Margin="5"/>
+        <TextBox Margin="5" Text="{Binding Path=Nacionalidad}"/>
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
             <Button Width="100" Margin="5" IsDefault="True" Click="Button_Click">Aceptar</Button>
             <Button Width="100" Margin="5" IsCancel="True">Cancelar</Button>

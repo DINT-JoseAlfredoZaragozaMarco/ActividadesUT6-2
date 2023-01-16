@@ -19,22 +19,13 @@ namespace Actividades_UT6_2.VistasModelo
             set { SetProperty(ref personas, value); }
         }
 
-        private ObservableCollection<Persona> personaSeleccionada;
+        private Persona personaSeleccionada;
 
-        public ObservableCollection<Persona> PersonaSeleccionada
+        public Persona PersonaSeleccionada
         {
             get { return personaSeleccionada; }
             set { SetProperty(ref personaSeleccionada, value); }
         }
-
-        private string textoAMostrar;
-
-        public string TextoAMostrar
-        {
-            get { return textoAMostrar; }
-            set { textoAMostrar = value; }
-        }
-
 
         public ListadoPersonasVM()
         {
@@ -44,16 +35,6 @@ namespace Actividades_UT6_2.VistasModelo
             Personas.Add(new Persona("Julia", "25", "Española"));
             Personas.Add(new Persona("Sophie", "35", "Francesa"));
 
-            MostrarPersonas();
-        }
-
-        public void MostrarPersonas()
-        {
-            TextoAMostrar = "";
-            foreach(Persona p in Personas)
-            {
-                TextoAMostrar = TextoAMostrar + $"{p.ToString()}\n";
-            }
         }
     }
 }

@@ -11,7 +11,6 @@ namespace Actividades_UT6_2.Modelo
     class Persona : ObservableObject
     {
 		private string nombre;
-
 		public string Nombre
 		{
 			get { return nombre; }
