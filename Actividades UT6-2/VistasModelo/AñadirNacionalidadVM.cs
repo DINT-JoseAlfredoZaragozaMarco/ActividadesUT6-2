@@ -1,6 +1,8 @@
-﻿using Actividades_UT6_2.Servicios;
+﻿using Actividades_UT6_2.Mensajeria;
+using Actividades_UT6_2.Servicios;
 using Microsoft.Toolkit.Mvvm.ComponentModel;
 using Microsoft.Toolkit.Mvvm.Input;
+using Microsoft.Toolkit.Mvvm.Messaging;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,12 +26,13 @@ namespace Actividades_UT6_2.VistasModelo
         public RelayCommand CommandAñadirNacionalidad { get; }
         public AñadirNacionalidadVM()
         {
+            Nacionalidad = "";
             CommandAñadirNacionalidad = new RelayCommand(NuevaNacionalidad);
         }
 
         public void NuevaNacionalidad()
         {
-
+            WeakReferenceMessenger.Default.Send(new NacionalidadChangedMessage(Nacionalidad));
         }
     }
 }

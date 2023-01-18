@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Actividades_UT6_2.VistasModelo;
+using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,9 +21,12 @@ namespace Actividades_UT6_2.Vistas
     /// </summary>
     public partial class AñadirNacionalidad : Window
     {
+        private AñadirNacionalidadVM vm;
         public AñadirNacionalidad()
         {
             InitializeComponent();
+            vm = new AñadirNacionalidadVM();
+            this.DataContext = vm;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

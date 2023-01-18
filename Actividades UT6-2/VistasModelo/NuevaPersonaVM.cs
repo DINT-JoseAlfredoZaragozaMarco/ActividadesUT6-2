@@ -1,7 +1,9 @@
-﻿using Actividades_UT6_2.Modelo;
+﻿using Actividades_UT6_2.Mensajeria;
+using Actividades_UT6_2.Modelo;
 using Actividades_UT6_2.Servicios;
 using Microsoft.Toolkit.Mvvm.ComponentModel;
 using Microsoft.Toolkit.Mvvm.Input;
+using Microsoft.Toolkit.Mvvm.Messaging;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -47,6 +49,11 @@ namespace Actividades_UT6_2.VistasModelo
             Nacionalidades.Add("Española");
             Nacionalidades.Add("Francesa");
             Nacionalidades.Add("Italiana");
+            WeakReferenceMessenger.Default.Register<NacionalidadChangedMessage>(this, (r, m) =>
+            {
+                Nacionalidades.Add(m.Value);
+            });
+
         }
 
         public void AñadirNacionalidad()
@@ -56,7 +63,7 @@ namespace Actividades_UT6_2.VistasModelo
 
         public void AgregarNuevaPersona()
         {
-            MessageBox.Show(PersonaNueva.ToString());
+            WeakReferenceMessenger.Default.Send(new PersonaChangedMessage(PersonaNueva));
         }
     }
 }

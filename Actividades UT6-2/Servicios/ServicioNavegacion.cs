@@ -11,12 +11,11 @@ namespace Actividades_UT6_2.Servicios
 {
     class ServicioNavegacion
     {
-        private bool iniciada;
         private UserControl contenedorUserControlLista;
 
         public ServicioNavegacion()
         {
-            iniciada = false;
+            contenedorUserControlLista = new ListadoPersonas();
         }
 
         public UserControl ObtenerNuevaPersona()
@@ -26,16 +25,7 @@ namespace Actividades_UT6_2.Servicios
 
         public UserControl ObtenerListaPersonas()
         {
-            if (!iniciada)
-            {
-                iniciada = true;
-                contenedorUserControlLista = new ListadoPersonas();
-                return contenedorUserControlLista;
-            }
-            else
-            {
-                return contenedorUserControlLista;
-            }
+            return contenedorUserControlLista;
         }
         
         public bool? AñadirNacionalidad()

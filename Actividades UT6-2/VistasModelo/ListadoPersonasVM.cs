@@ -1,5 +1,7 @@
-﻿using Actividades_UT6_2.Modelo;
+﻿using Actividades_UT6_2.Mensajeria;
+using Actividades_UT6_2.Modelo;
 using Microsoft.Toolkit.Mvvm.ComponentModel;
+using Microsoft.Toolkit.Mvvm.Messaging;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -35,6 +37,10 @@ namespace Actividades_UT6_2.VistasModelo
             Personas.Add(new Persona("Julia", "25", "Española"));
             Personas.Add(new Persona("Sophie", "35", "Francesa"));
 
+            WeakReferenceMessenger.Default.Register<PersonaChangedMessage>(this, (r, m) =>
+            {
+                Personas.Add(m.Value);
+            });
         }
     }
 }
