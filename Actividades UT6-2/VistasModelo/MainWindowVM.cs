@@ -24,12 +24,14 @@ namespace Actividades_UT6_2.VistasModelo
 
         public RelayCommand CommandNuevaPersona { get; }
         public RelayCommand CommandListaPersonas { get; }
+        public RelayCommand CommandMostrarPersona { get; }
 
         public MainWindowVM()
         {
             servicioNavegacion = new ServicioNavegacion();
             CommandListaPersonas = new RelayCommand(ListadoPersonas);
             CommandNuevaPersona = new RelayCommand(NuevaPersona);
+            CommandMostrarPersona = new RelayCommand(MostrarPersona);
         }
 
         public void NuevaPersona()
@@ -39,6 +41,11 @@ namespace Actividades_UT6_2.VistasModelo
         public void ListadoPersonas()
         {
             ContenidorUserControl = servicioNavegacion.ObtenerListaPersonas();
+        }
+
+        public void MostrarPersona()
+        {
+            ContenidorUserControl = servicioNavegacion.ObtenerMostrarPersona();
         }
     }
 }

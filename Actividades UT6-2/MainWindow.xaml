@@ -11,7 +11,7 @@
         <StackPanel Orientation="Horizontal" DockPanel.Dock="Top">
             <Button Margin="8" Width="150" Command="{Binding Path=CommandNuevaPersona}">Nueva Persona</Button>
             <Button Margin="8" Width="150" Command="{Binding Path=CommandListaPersonas}">Lista de personas</Button>
-            <Button Margin="8" Width="150" Command="{Binding Path=CommandListaPersonas}">Mostrar persona</Button>
+            <Button Margin="8" Width="150" Command="{Binding Path=CommandMostrarPersona}">Mostrar persona</Button>
         </StackPanel>
         <Border Margin="10" BorderThickness="1.5" BorderBrush="Black">
             <ContentControl Content="{Binding Path=ContenidorUserControl}">

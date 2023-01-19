@@ -33,5 +33,9 @@ namespace Actividades_UT6_2.Servicios
             AñadirNacionalidad añadirNacionalidadUserControl = new AñadirNacionalidad();
             return añadirNacionalidadUserControl.ShowDialog();
         }
+        public UserControl ObtenerMostrarPersona()
+        {
+            return new MostrarPersona();
+        }
     }
 }
