@@ -1,5 +1,7 @@
-﻿using Actividades_UT6_2.Modelo;
+﻿using Actividades_UT6_2.Mensajeria;
+using Actividades_UT6_2.Modelo;
 using Microsoft.Toolkit.Mvvm.ComponentModel;
+using Microsoft.Toolkit.Mvvm.Messaging;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,7 +22,7 @@ namespace Actividades_UT6_2.VistasModelo
 
         public MostrarPersonaVM()
         {
-
+            PersonaActual = WeakReferenceMessenger.Default.Send<PersonaRequestMessage>();
         }
     }
 }

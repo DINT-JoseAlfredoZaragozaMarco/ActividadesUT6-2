@@ -1,6 +1,7 @@
 ﻿using Actividades_UT6_2.Mensajeria;
 using Actividades_UT6_2.Modelo;
 using Microsoft.Toolkit.Mvvm.ComponentModel;
+using Microsoft.Toolkit.Mvvm.Input;
 using Microsoft.Toolkit.Mvvm.Messaging;
 using System;
 using System.Collections.Generic;
@@ -40,6 +41,10 @@ namespace Actividades_UT6_2.VistasModelo
             WeakReferenceMessenger.Default.Register<PersonaChangedMessage>(this, (r, m) =>
             {
                 Personas.Add(m.Value);
+            });
+
+            WeakReferenceMessenger.Default.Register<ListadoPersonasVM, PersonaRequestMessage>(this, (r, m) => {
+                m.Reply(r.PersonaSeleccionada);
             });
         }
     }

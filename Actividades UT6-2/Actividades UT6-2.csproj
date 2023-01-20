@@ -172,5 +172,10 @@
     <Resource Include="assets\añadir.ico" />
     <Resource Include="assets\personas.ico" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\cake.png" />
+    <Resource Include="assets\person.png" />
+    <Resource Include="assets\world.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
